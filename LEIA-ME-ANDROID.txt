@@ -1,0 +1,45 @@
+VALIDADE FÁCIL - ANDROID NATIVO - VERSÃO 2.0
+
+O QUE ESTA VERSÃO IMPLEMENTA
+- Aplicativo Android nativo (projeto Android Studio) com a interface web local embarcada.
+- Dados mantidos localmente no WebView do aplicativo (sem conta e sem internet).
+- Agendamento de notificações locais pelo AlarmManager: 15, 7, 3 e 1 dia antes, no dia do vencimento e no dia seguinte.
+- Reprogramação dos alarmes ao cadastrar, editar, finalizar, excluir ou restaurar alimentos.
+- Reprogramação após reinicialização do aparelho e atualização do aplicativo.
+- Canal de notificações Android.
+- Solicitação de permissão POST_NOTIFICATIONS no Android 13+ e acesso a alarmes exatos no Android 12+.
+
+COMO GERAR O APK
+1. Em um computador, instale Android Studio e o Android SDK (API 35).
+2. Extraia a pasta validade-facil-android.zip.
+3. No Android Studio, escolha Open e selecione a pasta extraída (a que contém settings.gradle).
+4. Aguarde a sincronização do Gradle.
+5. Use Build > Build Bundle(s) / APK(s) > Build APK(s).
+6. O APK de teste ficará em app/build/outputs/apk/debug/app-debug.apk.
+7. Transfira o APK para o Android, permita a instalação desta fonte e instale.
+
+PRIMEIRA UTILIZAÇÃO
+- Abra o aplicativo.
+- Cadastre ou importe seus alimentos.
+- Toque em “Ativar alertas automáticos”.
+- Conceda a permissão de notificações.
+- Em Android 12+, permita alarmes e lembretes exatos quando o sistema abrir a tela de acesso especial.
+- Não force a parada do aplicativo nas configurações do Android: isso pode impedir alarmes até que o app seja aberto novamente.
+
+OBSERVAÇÕES IMPORTANTES
+- Os alertas são locais; não exigem internet.
+- O Android pode aplicar restrições de bateria específicas do fabricante. Em alguns aparelhos, pode ser necessário permitir atividade em segundo plano ou remover otimização de bateria para maior confiabilidade.
+- Alarmes exatos dependem da autorização especial em Android 12+; se não concedida, o app usa alarmes inexatos, que podem atrasar.
+- Esta entrega é o PROJETO-FONTE Android Studio, não um APK já compilado. A compilação exige Android SDK/Android Studio.
+- Os dados são guardados no armazenamento privado do app. Desinstalar o aplicativo pode apagar os dados; exporte backups regularmente.
+
+OPÇÃO DE COMPILAÇÃO PELO CELULAR (SEM INSTALAR ANDROID STUDIO)
+O projeto inclui .github/workflows/build-apk.yml para compilar o APK na nuvem.
+1. Crie uma conta no GitHub, se ainda não tiver.
+2. No navegador do celular, crie um repositório novo e envie o conteúdo desta pasta para a raiz do repositório.
+3. Abra a aba Actions do repositório e selecione “Gerar APK Validade Fácil”.
+4. Toque em “Run workflow” e aguarde a execução terminar.
+5. Abra a execução concluída e baixe o artefato “validade-facil-apk-debug”.
+6. Extraia o arquivo ZIP do artefato para encontrar app-debug.apk e instale no Android.
+
+O APK gerado por esse fluxo é uma versão debug para testes. Para distribuição pública, será necessário gerar uma versão release assinada.
